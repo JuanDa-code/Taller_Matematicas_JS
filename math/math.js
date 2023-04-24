@@ -49,6 +49,35 @@ function calcularTriangulo(lado1, lado2, base, altura) {
     };
 }
 
+function calcularAlturaTriangulo(lado1, base) {
+    if (lado1 == base) {
+        console.warn('Este no es un triangulo isosceles');
+    } else {
+        return Math.sqrt( (lado1 ** 2) - ((base ** 2) / 4) );
+    }
+}
+
+function calcularAlturaTrianguloEscaleno(lado1, lado2, lado3) {
+    if (lado1 == lado3 || lado2 == lado3 || lado1 == lado2) {
+        console.warn('Este no es un triangulo escaleno');
+    } else {
+        let s = (lado1 + lado2 + lado3) / 2;
+        let lados = [ lado1, lado2, lado3 ];
+        let alturas = [];
+        lados.forEach(lado => {
+            h = (2 / lado) * Math.sqrt( s * (s - lado1) * (s - lado2) * (s - lado3));
+            alturas.push(h);
+        });
+        
+        let i = 1;
+
+        return alturas.forEach(altura => {
+            console.log(`Altura ${i}: ${altura}`);
+            i++;
+        });
+    }
+}
+
 console.groupEnd('Triangulo');
 
 /* Circulo */
