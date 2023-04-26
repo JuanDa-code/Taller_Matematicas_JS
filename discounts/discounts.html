@@ -20,10 +20,10 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <label>Digita el precio en pesos colombianos:</label>
+                    <label>Digita el precio del producto:</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">$</span>
-                        <input type="number" class="form-control" placeholder="Cantidad (En pesos colombianos) ..." id="price">
+                        <input type="number" class="form-control" placeholder="Cantidad (En pesos colombianos)" id="price">
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -40,6 +40,38 @@
             <div class="card-footer text-body-secondary">
                 <h2 class="card-title">Precio final:</h2>
                 <h3 class="card-title" id="result"></h3>
+            </div>
+        </div>
+        <br>
+        <div class="card text-center">
+            <div class="card-header">
+                <h1 class="card-title">Redimir cupones</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">¿Tienes un cupon y quieres redimirlo?</p>
+                <h5 class="card-title">Escoge el cupon que ganaste y disfruta del increible descuento</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <label>Digita el precio del producto:</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" placeholder="Cantidad (En pesos colombianos)" id="priceCoupon">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <label>Digita el cupon de descuento:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Escribe aqui tu cupon" id="coupon">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-outline-success" id="calcularCoupon">Calcular</button>
+                </li>
+            </ul>
+            <div class="card-footer text-body-secondary">
+                <h2 class="card-title">Precio final:</h2>
+                <h3 class="card-title" id="resultCoupon"></h3>
             </div>
         </div>
     </div>

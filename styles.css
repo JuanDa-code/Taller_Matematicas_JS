@@ -7,6 +7,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;
+}
+
+.card {
+    margin: 10px;
 }
