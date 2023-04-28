@@ -1,8 +1,12 @@
-let nums = [1, 40, 25, 76, 32, 19, 7];
+const PlatziMath = {};
 
-const esPar = (array) => array.length % 2 == 0? true:false;
+let nums = [1, 40, 25, 76, 32, 19, 7, 1, 40, 1, 25, 25, 25, 25];
 
-const calcularPromedio = (arrayNums) => {
+PlatziMath.esPar = function esPar (array) {
+    array.length % 2 == 0? true:false;  
+}
+
+PlatziMath.calcularPromedio = function (arrayNums) {
     // Metodo propio
     // let sumNumbers = 0;
 
@@ -22,9 +26,9 @@ const calcularPromedio = (arrayNums) => {
     return promedio.toFixed(1);
 }
 
-const calcularMediana = (arrayNums) => {
+PlatziMath.calcularMediana = function (arrayNums) {
     const arrayEsPar = esPar(arrayNums);
-    const arrayOrdenado = arrayNums.sort((a, b) => a - b);
+    const arrayOrdenado = listaOrdenada(arrayNums);
 
     if (arrayEsPar) {
         const indexMitad = Math.round(arrayOrdenado.length / 2);
@@ -42,12 +46,51 @@ const calcularMediana = (arrayNums) => {
     }
 }
 
-function agrupar (titulo, contenido) {
+PlatziMath.agrupar = function (titulo, contenido) {
     console.group(titulo);
     console.log(contenido);
     console.groupEnd();
 }
 
+PlatziMath.listaOrdenada = function (listaDesordenada) {
+    const lista = listaDesordenada.sort((a, b) => a - b);
+
+    return lista;
+}
+
+PlatziMath.listaOrdenadaBidimensional = function (listaDesordenadaBi, i) {
+    const lista = listaDesordenadaBi.sort((a, b) => a[i] - b[i]);
+
+    return lista;
+}
+
+PlatziMath.calcularModa = function (array) {
+    const listaObject = {};
+
+    array.forEach(element => {
+        if (listaObject[element]) {
+            listaObject[element] += 1;
+        } else {
+            listaObject[element] = 1;
+        }
+    });
+
+    const listaArray = Object.entries(listaObject);
+    const listaArrayOrdenada = listaOrdenadaBidimensional(listaArray, 1);
+    const listaLastElement = listaArrayOrdenada[listaArrayOrdenada.length - 1];
+    const listaLastElement2 = listaArrayOrdenada[listaArrayOrdenada.length - 2];
+    let moda;
+
+    if (listaLastElement[1] === listaLastElement2[1]) {
+        moda = 'No hay moda en este array';
+    } else {
+        moda = listaLastElement[0];
+    }
+
+    return moda;
+};
+
 agrupar('Funcion Par', esPar(nums));
 agrupar('Funcion Calcular Promedio', calcularPromedio(nums));
 agrupar('Funcion Calcular Mediana', calcularMediana(nums));
+agrupar('Funcion Calcular Moda', calcularModa(nums));
