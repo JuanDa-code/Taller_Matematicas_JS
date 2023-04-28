@@ -89,8 +89,3 @@ PlatziMath.calcularModa = function (array) {
 
     return moda;
 };
-
-agrupar('Funcion Par', esPar(nums));
-agrupar('Funcion Calcular Promedio', calcularPromedio(nums));
-agrupar('Funcion Calcular Mediana', calcularMediana(nums));
-agrupar('Funcion Calcular Moda', calcularModa(nums));
