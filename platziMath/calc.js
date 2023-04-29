@@ -2,8 +2,8 @@ const PlatziMath = {};
 
 let nums = [1, 40, 25, 76, 32, 19, 7, 1, 40, 1, 25, 25, 25, 25];
 
-PlatziMath.esPar = function esPar (array) {
-    array.length % 2 == 0? true:false;  
+PlatziMath.esPar = function (array) {
+    return array.length % 2 == 0? true:false;
 }
 
 PlatziMath.calcularPromedio = function (arrayNums) {
@@ -23,12 +23,12 @@ PlatziMath.calcularPromedio = function (arrayNums) {
 
     let promedio = sumaArray / arrayNums.length;
 
-    return promedio.toFixed(1);
+    return promedio;
 }
 
 PlatziMath.calcularMediana = function (arrayNums) {
-    const arrayEsPar = esPar(arrayNums);
-    const arrayOrdenado = listaOrdenada(arrayNums);
+    const arrayEsPar = PlatziMath.esPar(arrayNums);
+    const arrayOrdenado = PlatziMath.listaOrdenada(arrayNums);
 
     if (arrayEsPar) {
         const indexMitad = Math.round(arrayOrdenado.length / 2);
@@ -38,7 +38,7 @@ PlatziMath.calcularMediana = function (arrayNums) {
         valoresMitad.push(arrayOrdenado[indexMitad]);
         valoresMitad.push(arrayOrdenado[indexMitad - 1]);
 
-        return calcularPromedio(valoresMitad);
+        return PlatziMath.calcularPromedio(valoresMitad);
     } else {
         const indexMitadArrayImpar = Math.round(arrayOrdenado.length / 2);
         
