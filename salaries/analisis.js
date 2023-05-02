@@ -96,3 +96,29 @@ function proyeccionPorEmpresa(nombre) {
         return nuevoMediana;
     }
 }
+
+// Analisis general
+
+function medianaGeneral () {
+    const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+    
+    const mediana = PlatziMath.calcularMediana(listaMedianas);
+    
+    return mediana
+}
+
+function medianaTop10 () {
+    const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+
+    const medianasOrdenada = PlatziMath.listaOrdenada(listaMedianas);
+
+    const cantidad = medianasOrdenada.length / 10;
+    const limite = medianasOrdenada.length - cantidad;
+
+    // Splice quita los elementos a diferencia de slice que solo usa los elementos
+    const top10 = medianasOrdenada.slice(limite, medianasOrdenada.length);
+
+    const medianaTop10 = PlatziMath.calcularMediana(top10);
+
+    return medianaTop10;
+}
